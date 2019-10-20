@@ -1,15 +1,16 @@
-import React from 'react'
-import Note from '../Note/Note'
-import './NotePageMain.css'
-import AppContext from '../AppContext'
-import { findNote } from '../notes-helpers'
+import React from "react";
+import Note from "../Note/Note";
+import "./NotePageMain.css";
+import AppContext from "../AppContext";
+import { findNote } from "../notes-helpers";
 
 export default class NotePageMain extends React.Component {
-  static contextType = AppContext
+  static contextType = AppContext;
 
   render() {
-    const { noteId } = this.props.match.params
-    const note = findNote(this.context.notes, noteId)
+    const { noteId } = this.props.match.params;
+    const note = findNote(this.context.notes, noteId);
+    console.log(note);
 
     return (
       <section className="NotePageMain">
@@ -26,6 +27,6 @@ export default class NotePageMain extends React.Component {
           ))}
         </div>
       </section>
-    )
+    );
   }
 }

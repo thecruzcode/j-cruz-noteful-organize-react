@@ -36,13 +36,15 @@ export default class AddFolder extends Component {
         message = "Folder name must be at least 3 characters long";
         hasError = true;
       } else {
-        if (!folderName.match(new RegExp(/^([a-zA-Z0-9_-])*$/))) {
-          message = "Folder name must use alphanumeric characters only";
-          hasError = true;
-        } else {
-          message = "";
-          hasError = false;
-        }
+        message = "";
+        hasError = false;
+        // if (!folderName.match(new RegExp(/^([a-zA-Z0-9_-])*$/))) {
+        //   message = "Folder name must use alphanumeric characters only";
+        //   hasError = true;
+        // } else {
+        //   message = "";
+        //   hasError = false;
+        // }
       }
     }
     this.setState({
@@ -60,7 +62,10 @@ export default class AddFolder extends Component {
       },
       body: JSON.stringify(newFolder)
     })
-      .then(() => this.props.history.push("/"))
+      // .then(() => this.props.history.push("/"))
+      .then(() => {
+        window.location.href = "/";
+      })
       .catch(err => this.context.onError(err));
   };
 
